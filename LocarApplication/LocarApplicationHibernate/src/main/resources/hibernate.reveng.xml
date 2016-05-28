@@ -15,6 +15,7 @@
   <table-filter match-catalog="schema_locar" match-name="loginperfil"/>
   <table-filter match-catalog="schema_locar" match-name="modeloveiculo"/>
   <table-filter match-catalog="schema_locar" match-name="montadoraveiculo"/>
+  <table-filter match-catalog="schema_locar" match-name="pagamento"/>
   <table-filter match-catalog="schema_locar" match-name="questaoavaliacao"/>
   <table-filter match-catalog="schema_locar" match-name="reserva"/>
   <table-filter match-catalog="schema_locar" match-name="statusreserva"/>

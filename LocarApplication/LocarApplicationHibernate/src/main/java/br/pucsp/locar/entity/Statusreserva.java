@@ -1,5 +1,5 @@
 package br.pucsp.locar.entity;
-// Generated 15/05/2016 13:10:26 by Hibernate Tools 4.3.1.Final
+// Generated 28/05/2016 00:02:55 by Hibernate Tools 4.3.1.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -46,7 +46,7 @@ public class Statusreserva implements java.io.Serializable {
 		this.status = status;
 	}
 
-	@Column(name = "descricao", nullable = false, length = 15)
+	@Column(name = "descricao", nullable = false, length = 30)
 	public String getDescricao() {
 		return this.descricao;
 	}

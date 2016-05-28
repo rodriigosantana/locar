@@ -1,5 +1,5 @@
 package br.pucsp.locar.entity;
-// Generated 15/05/2016 13:10:26 by Hibernate Tools 4.3.1.Final
+// Generated 28/05/2016 00:02:55 by Hibernate Tools 4.3.1.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -26,12 +26,12 @@ public class Login implements java.io.Serializable {
 	private Date dtinclusao;
 	private Date dtalteracao;
 	private Set<Avaliacaolocacao> avaliacaolocacaos = new HashSet<Avaliacaolocacao>(0);
+	private Set<Pagamento> pagamentos = new HashSet<Pagamento>(0);
 	private Usuario usuario;
 	private Set<Loginperfil> loginperfils = new HashSet<Loginperfil>(0);
 	private Set<Veiculo> veiculos = new HashSet<Veiculo>(0);
 	private Set<Reserva> reservasForIdEstacionamento = new HashSet<Reserva>(0);
 	private Estacionamento estacionamento;
-	private Set<Reserva> reservasForIdLocador = new HashSet<Reserva>(0);
 	private Set<Reserva> reservasForIdLocatario = new HashSet<Reserva>(0);
 	private Set<Telefone> telefones = new HashSet<Telefone>(0);
 
@@ -45,20 +45,20 @@ public class Login implements java.io.Serializable {
 	}
 
 	public Login(String idLogin, String senha, Date dtinclusao, Date dtalteracao,
-			Set<Avaliacaolocacao> avaliacaolocacaos, Usuario usuario, Set<Loginperfil> loginperfils,
-			Set<Veiculo> veiculos, Set<Reserva> reservasForIdEstacionamento, Estacionamento estacionamento,
-			Set<Reserva> reservasForIdLocador, Set<Reserva> reservasForIdLocatario, Set<Telefone> telefones) {
+			Set<Avaliacaolocacao> avaliacaolocacaos, Set<Pagamento> pagamentos, Usuario usuario,
+			Set<Loginperfil> loginperfils, Set<Veiculo> veiculos, Set<Reserva> reservasForIdEstacionamento,
+			Estacionamento estacionamento, Set<Reserva> reservasForIdLocatario, Set<Telefone> telefones) {
 		this.idLogin = idLogin;
 		this.senha = senha;
 		this.dtinclusao = dtinclusao;
 		this.dtalteracao = dtalteracao;
 		this.avaliacaolocacaos = avaliacaolocacaos;
+		this.pagamentos = pagamentos;
 		this.usuario = usuario;
 		this.loginperfils = loginperfils;
 		this.veiculos = veiculos;
 		this.reservasForIdEstacionamento = reservasForIdEstacionamento;
 		this.estacionamento = estacionamento;
-		this.reservasForIdLocador = reservasForIdLocador;
 		this.reservasForIdLocatario = reservasForIdLocatario;
 		this.telefones = telefones;
 	}
@@ -112,6 +112,15 @@ public class Login implements java.io.Serializable {
 		this.avaliacaolocacaos = avaliacaolocacaos;
 	}
 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "login")
+	public Set<Pagamento> getPagamentos() {
+		return this.pagamentos;
+	}
+
+	public void setPagamentos(Set<Pagamento> pagamentos) {
+		this.pagamentos = pagamentos;
+	}
+
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "login")
 	public Usuario getUsuario() {
 		return this.usuario;
@@ -155,15 +164,6 @@ public class Login implements java.io.Serializable {
 
 	public void setEstacionamento(Estacionamento estacionamento) {
 		this.estacionamento = estacionamento;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "loginByIdLocador")
-	public Set<Reserva> getReservasForIdLocador() {
-		return this.reservasForIdLocador;
-	}
-
-	public void setReservasForIdLocador(Set<Reserva> reservasForIdLocador) {
-		this.reservasForIdLocador = reservasForIdLocador;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "loginByIdLocatario")

@@ -1,5 +1,5 @@
 package br.pucsp.locar.entity;
-// Generated 15/05/2016 13:10:26 by Hibernate Tools 4.3.1.Final
+// Generated 28/05/2016 00:02:55 by Hibernate Tools 4.3.1.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -29,6 +29,7 @@ public class Veiculo implements java.io.Serializable {
 	private String chassi;
 	private int numPortas;
 	private BigDecimal capacidadeTanque;
+	private Set<Reserva> reservas = new HashSet<Reserva>(0);
 	private Set<Disponibilidadeveiculo> disponibilidadeveiculos = new HashSet<Disponibilidadeveiculo>(0);
 
 	public Veiculo() {
@@ -46,7 +47,7 @@ public class Veiculo implements java.io.Serializable {
 	}
 
 	public Veiculo(String placa, Login login, Modeloveiculo modeloveiculo, long renavam, String chassi, int numPortas,
-			BigDecimal capacidadeTanque, Set<Disponibilidadeveiculo> disponibilidadeveiculos) {
+			BigDecimal capacidadeTanque, Set<Reserva> reservas, Set<Disponibilidadeveiculo> disponibilidadeveiculos) {
 		this.placa = placa;
 		this.login = login;
 		this.modeloveiculo = modeloveiculo;
@@ -54,6 +55,7 @@ public class Veiculo implements java.io.Serializable {
 		this.chassi = chassi;
 		this.numPortas = numPortas;
 		this.capacidadeTanque = capacidadeTanque;
+		this.reservas = reservas;
 		this.disponibilidadeveiculos = disponibilidadeveiculos;
 	}
 
@@ -122,6 +124,15 @@ public class Veiculo implements java.io.Serializable {
 
 	public void setCapacidadeTanque(BigDecimal capacidadeTanque) {
 		this.capacidadeTanque = capacidadeTanque;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "veiculo")
+	public Set<Reserva> getReservas() {
+		return this.reservas;
+	}
+
+	public void setReservas(Set<Reserva> reservas) {
+		this.reservas = reservas;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "veiculo")

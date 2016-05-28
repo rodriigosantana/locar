@@ -1,5 +1,5 @@
 package br.pucsp.locar.entity;
-// Generated 15/05/2016 13:10:26 by Hibernate Tools 4.3.1.Final
+// Generated 28/05/2016 00:02:55 by Hibernate Tools 4.3.1.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -25,6 +25,7 @@ import javax.persistence.TemporalType;
 public class Locacao implements java.io.Serializable {
 
 	private Integer idLocacao;
+	private Pagamento pagamento;
 	private Reserva reserva;
 	private Date dtinicio;
 	private Date dtfinal;
@@ -33,12 +34,15 @@ public class Locacao implements java.io.Serializable {
 	public Locacao() {
 	}
 
-	public Locacao(Reserva reserva, Date dtinicio) {
+	public Locacao(Pagamento pagamento, Reserva reserva, Date dtinicio) {
+		this.pagamento = pagamento;
 		this.reserva = reserva;
 		this.dtinicio = dtinicio;
 	}
 
-	public Locacao(Reserva reserva, Date dtinicio, Date dtfinal, Set<Avaliacaolocacao> avaliacaolocacaos) {
+	public Locacao(Pagamento pagamento, Reserva reserva, Date dtinicio, Date dtfinal,
+			Set<Avaliacaolocacao> avaliacaolocacaos) {
+		this.pagamento = pagamento;
 		this.reserva = reserva;
 		this.dtinicio = dtinicio;
 		this.dtfinal = dtfinal;
@@ -55,6 +59,16 @@ public class Locacao implements java.io.Serializable {
 
 	public void setIdLocacao(Integer idLocacao) {
 		this.idLocacao = idLocacao;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idPagamento", nullable = false)
+	public Pagamento getPagamento() {
+		return this.pagamento;
+	}
+
+	public void setPagamento(Pagamento pagamento) {
+		this.pagamento = pagamento;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)

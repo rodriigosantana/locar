@@ -1,5 +1,5 @@
 package br.pucsp.locar.entity;
-// Generated 15/05/2016 13:10:26 by Hibernate Tools 4.3.1.Final
+// Generated 28/05/2016 00:02:55 by Hibernate Tools 4.3.1.Final
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

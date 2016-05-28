@@ -7,6 +7,7 @@ import br.pucsp.locar.dao.ConvertVeiculoToDAO;
 import br.pucsp.locar.fabrica.DAOFabrica;
 import br.pucsp.locar.ilocal.CadastroLocal;
 import br.pucsp.locar.iremote.CadastroRemote;
+import br.pucsp.locar.util.CadastroValidatorUtils;
 import br.pucsp.locar.ws.vo.CadastroUsuarioRequestVO;
 import br.pucsp.locar.ws.vo.CadastroVeiculoRequestVO;
 import br.pucsp.locar.ws.vo.CadastroVeiculoResponseVO;
@@ -22,11 +23,22 @@ public class CadastroBusiness implements CadastroLocal, CadastroRemote {
 		
 		try{
 			
-			response.setPlaca(DAOFabrica.getVeiculoDAO().cadastrarVeiculo(
-					ConvertVeiculoToDAO.cadastroVeiculoRequestVOToVeiculo(request)));
+			String msg = CadastroValidatorUtils.validarDadosCadastroVeiculo(request);
 			
-			response.setCodigoRetorno(0);
-			response.setMensagemRetorno("Processamento realizado com sucesso");
+			if (msg.trim().equals("")){
+			
+				response.setPlaca(DAOFabrica.getVeiculoDAO().cadastrarVeiculo(
+						ConvertVeiculoToDAO.cadastroVeiculoRequestVOToVeiculo(request)));
+				
+				response.setCodigoRetorno(0);
+				response.setMensagemRetorno("Processamento realizado com sucesso");
+			
+			} else {
+						
+				response.setCodigoRetorno(200);
+				response.setMensagemRetorno("Dados informados inválidos - " + msg);
+				
+			}
 			
 		} catch (Exception e) {
 			
@@ -50,15 +62,19 @@ public class CadastroBusiness implements CadastroLocal, CadastroRemote {
 		
 		try{
 			
-			if(DAOFabrica.getLoginDAO().isCadastroLogin(request.getLogin())){
-				
-				response.setCodigoRetorno(1);
-				response.setMensagemRetorno("Login ja utilizado por outro usuario.");
-				
-			} else {
-				
-				response.setCodigoRetorno(0);
-				response.setMensagemRetorno("Login disponivel para utilizacao.");
+			if(request.getLogin().length() <= 15) {
+			
+				if(DAOFabrica.getLoginDAO().isCadastroLogin(request.getLogin())){
+					
+					response.setCodigoRetorno(1);
+					response.setMensagemRetorno("Login ja utilizado por outro usuario.");
+					
+				} else {
+					
+					response.setCodigoRetorno(0);
+					response.setMensagemRetorno("Login disponivel para utilizacao.");
+					
+				}
 				
 			}
 			
@@ -86,19 +102,30 @@ public class CadastroBusiness implements CadastroLocal, CadastroRemote {
 		
 		try{
 			
-			if(DAOFabrica.getCadastroDAO().cadastrarUsuario(
-					ConvertCadastroToDAO.cadastroLoginRequestVOToLogin(request)
-					,ConvertCadastroToDAO.cadastroUsuarioRequestVOToUsuario(request)
-					,ConvertCadastroToDAO.cadastroEnderecoRequestVOToEndereco(request.getEnderecoVO())
-					,ConvertCadastroToDAO.cadastroTelefoneRequestVOToTelefone(request.getTelefoneVO()))){
-				
-				response.setCodigoRetorno(0);
-				response.setMensagemRetorno("Cadastro de usuario realizado com sucesso");
+			String msg = CadastroValidatorUtils.validarDadosCadastroUsuario(request);
+			
+			if (msg.trim().equals("")) {
+			
+				if(DAOFabrica.getCadastroDAO().cadastrarUsuario(
+						ConvertCadastroToDAO.cadastroLoginRequestVOToLogin(request)
+						,ConvertCadastroToDAO.cadastroUsuarioRequestVOToUsuario(request)
+						,ConvertCadastroToDAO.cadastroEnderecoRequestVOToEndereco(request.getEnderecoVO())
+						,ConvertCadastroToDAO.cadastroTelefoneRequestVOToTelefone(request.getTelefoneVO()))){
+					
+					response.setCodigoRetorno(0);
+					response.setMensagemRetorno("Cadastro de usuario realizado com sucesso");
+					
+				} else {
+					
+					response.setCodigoRetorno(100);
+					response.setMensagemRetorno("Nao foi possivel realizar o cadastro");
+				}
 				
 			} else {
 				
-				response.setCodigoRetorno(100);
-				response.setMensagemRetorno("Nao foi possivel realizar o cadastro");
+				response.setCodigoRetorno(200);
+				response.setMensagemRetorno("Dados informados inválidos - " + msg);
+				
 			}
 			
 		} catch (Exception e) {

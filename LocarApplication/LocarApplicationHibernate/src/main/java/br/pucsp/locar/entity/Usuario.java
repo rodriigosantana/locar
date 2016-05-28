@@ -1,5 +1,5 @@
 package br.pucsp.locar.entity;
-// Generated 15/05/2016 13:10:26 by Hibernate Tools 4.3.1.Final
+// Generated 28/05/2016 00:02:55 by Hibernate Tools 4.3.1.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -43,8 +43,8 @@ public class Usuario implements java.io.Serializable {
 	public Usuario() {
 	}
 
-	public Usuario(Endereco endereco, Login login, long cpf, long cnh, String email, String nome, Date dtNasc, String rg,
-			String orgaoemissor, Date dtinclusao, char status) {
+	public Usuario(Endereco endereco, Login login, long cpf, long cnh, String email, String nome, Date dtNasc,
+			String rg, String orgaoemissor, Date dtinclusao, char status) {
 		this.endereco = endereco;
 		this.login = login;
 		this.cpf = cpf;
@@ -58,8 +58,8 @@ public class Usuario implements java.io.Serializable {
 		this.status = status;
 	}
 
-	public Usuario(Endereco endereco, Login login, long cpf, long cnh, String email, String nome, Date dtNasc, String rg,
-			String orgaoemissor, Date dtinclusao, Date dtalteracao, char status) {
+	public Usuario(Endereco endereco, Login login, long cpf, long cnh, String email, String nome, Date dtNasc,
+			String rg, String orgaoemissor, Date dtinclusao, Date dtalteracao, char status) {
 		this.endereco = endereco;
 		this.login = login;
 		this.cpf = cpf;
@@ -143,7 +143,8 @@ public class Usuario implements java.io.Serializable {
 		this.nome = nome;
 	}
 
-	@Column(name = "dtNasc", nullable = false, precision = 8, scale = 0)
+	@Temporal(TemporalType.DATE)
+	@Column(name = "dtNasc", nullable = false, length = 10)
 	public Date getDtNasc() {
 		return this.dtNasc;
 	}

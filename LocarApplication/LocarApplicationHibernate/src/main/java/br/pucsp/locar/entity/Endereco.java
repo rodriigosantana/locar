@@ -1,5 +1,5 @@
 package br.pucsp.locar.entity;
-// Generated 15/05/2016 13:10:26 by Hibernate Tools 4.3.1.Final
+// Generated 28/05/2016 00:02:55 by Hibernate Tools 4.3.1.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,6 +26,8 @@ public class Endereco implements java.io.Serializable {
 	private Tipoendereco tipoendereco;
 	private String logradouro;
 	private int numero;
+	private String complemento;
+	private int cep;
 	private String bairro;
 	private Set<Disponibilidadeveiculo> disponibilidadeveiculos = new HashSet<Disponibilidadeveiculo>(0);
 	private Set<Usuario> usuarios = new HashSet<Usuario>(0);
@@ -33,20 +35,23 @@ public class Endereco implements java.io.Serializable {
 	public Endereco() {
 	}
 
-	public Endereco(Cidade cidade, Tipoendereco tipoendereco, String logradouro, int numero, String bairro) {
+	public Endereco(Cidade cidade, Tipoendereco tipoendereco, String logradouro, int numero, int cep, String bairro) {
 		this.cidade = cidade;
 		this.tipoendereco = tipoendereco;
 		this.logradouro = logradouro;
 		this.numero = numero;
+		this.cep = cep;
 		this.bairro = bairro;
 	}
 
-	public Endereco(Cidade cidade, Tipoendereco tipoendereco, String logradouro, int numero, String bairro,
-			Set<Disponibilidadeveiculo> disponibilidadeveiculos, Set<Usuario> usuarios) {
+	public Endereco(Cidade cidade, Tipoendereco tipoendereco, String logradouro, int numero, String complemento,
+			int cep, String bairro, Set<Disponibilidadeveiculo> disponibilidadeveiculos, Set<Usuario> usuarios) {
 		this.cidade = cidade;
 		this.tipoendereco = tipoendereco;
 		this.logradouro = logradouro;
 		this.numero = numero;
+		this.complemento = complemento;
+		this.cep = cep;
 		this.bairro = bairro;
 		this.disponibilidadeveiculos = disponibilidadeveiculos;
 		this.usuarios = usuarios;
@@ -100,6 +105,24 @@ public class Endereco implements java.io.Serializable {
 
 	public void setNumero(int numero) {
 		this.numero = numero;
+	}
+
+	@Column(name = "complemento", length = 30)
+	public String getComplemento() {
+		return this.complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	@Column(name = "cep", nullable = false, precision = 9, scale = 0)
+	public int getCep() {
+		return this.cep;
+	}
+
+	public void setCep(int cep) {
+		this.cep = cep;
 	}
 
 	@Column(name = "bairro", nullable = false, length = 60)

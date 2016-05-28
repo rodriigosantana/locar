@@ -8,7 +8,7 @@ Class-Path: LocarApplicationHibernate-0.0.1-SNAPSHOT.jar hibernate-cor
  1.6.1.jar xml-apis-1.0.b2.jar hibernate-commons-annotations-5.0.1.Fin
  al.jar mysql-connector-java-5.1.38.jar hibernate-entitymanager-5.1.0.
  Final.jar commons-collections-3.2.2.jar LocarApplicationEJBClient-0.0
- .1-SNAPSHOT.jar LocarApplicationWSClient-0.0.1-SNAPSHOT.jar log4j-cor
- e-2.5.jar log4j-api-2.5.jar
+ .1-SNAPSHOT.jar LocarApplicationWSClient-0.0.1-SNAPSHOT.jar commons-l
+ ang3-3.4.jar log4j-core-2.5.jar log4j-api-2.5.jar
 Created-By: Maven Integration for Eclipse
 

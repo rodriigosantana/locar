@@ -1,5 +1,5 @@
 package br.pucsp.locar.entity;
-// Generated 15/05/2016 13:10:26 by Hibernate Tools 4.3.1.Final
+// Generated 28/05/2016 00:02:55 by Hibernate Tools 4.3.1.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -26,9 +26,11 @@ public class Reserva implements java.io.Serializable {
 
 	private Integer idReserva;
 	private Login loginByIdEstacionamento;
-	private Login loginByIdLocador;
 	private Login loginByIdLocatario;
 	private Statusreserva statusreserva;
+	private Veiculo veiculo;
+	private Date dtretirada;
+	private Date dtdevolucao;
 	private Date dtinclusao;
 	private Date dtalteracao;
 	private String observacao;
@@ -37,19 +39,25 @@ public class Reserva implements java.io.Serializable {
 	public Reserva() {
 	}
 
-	public Reserva(Login loginByIdLocador, Login loginByIdLocatario, Statusreserva statusreserva, Date dtinclusao) {
-		this.loginByIdLocador = loginByIdLocador;
+	public Reserva(Login loginByIdLocatario, Statusreserva statusreserva, Veiculo veiculo, Date dtretirada,
+			Date dtdevolucao, Date dtinclusao) {
 		this.loginByIdLocatario = loginByIdLocatario;
 		this.statusreserva = statusreserva;
+		this.veiculo = veiculo;
+		this.dtretirada = dtretirada;
+		this.dtdevolucao = dtdevolucao;
 		this.dtinclusao = dtinclusao;
 	}
 
-	public Reserva(Login loginByIdEstacionamento, Login loginByIdLocador, Login loginByIdLocatario,
-			Statusreserva statusreserva, Date dtinclusao, Date dtalteracao, String observacao, Set<Locacao> locacaos) {
+	public Reserva(Login loginByIdEstacionamento, Login loginByIdLocatario, Statusreserva statusreserva,
+			Veiculo veiculo, Date dtretirada, Date dtdevolucao, Date dtinclusao, Date dtalteracao, String observacao,
+			Set<Locacao> locacaos) {
 		this.loginByIdEstacionamento = loginByIdEstacionamento;
-		this.loginByIdLocador = loginByIdLocador;
 		this.loginByIdLocatario = loginByIdLocatario;
 		this.statusreserva = statusreserva;
+		this.veiculo = veiculo;
+		this.dtretirada = dtretirada;
+		this.dtdevolucao = dtdevolucao;
 		this.dtinclusao = dtinclusao;
 		this.dtalteracao = dtalteracao;
 		this.observacao = observacao;
@@ -79,16 +87,6 @@ public class Reserva implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idLocador", nullable = false)
-	public Login getLoginByIdLocador() {
-		return this.loginByIdLocador;
-	}
-
-	public void setLoginByIdLocador(Login loginByIdLocador) {
-		this.loginByIdLocador = loginByIdLocador;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idLocatario", nullable = false)
 	public Login getLoginByIdLocatario() {
 		return this.loginByIdLocatario;
@@ -106,6 +104,36 @@ public class Reserva implements java.io.Serializable {
 
 	public void setStatusreserva(Statusreserva statusreserva) {
 		this.statusreserva = statusreserva;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "placa", nullable = false)
+	public Veiculo getVeiculo() {
+		return this.veiculo;
+	}
+
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "dtretirada", nullable = false, length = 19)
+	public Date getDtretirada() {
+		return this.dtretirada;
+	}
+
+	public void setDtretirada(Date dtretirada) {
+		this.dtretirada = dtretirada;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "dtdevolucao", nullable = false, length = 19)
+	public Date getDtdevolucao() {
+		return this.dtdevolucao;
+	}
+
+	public void setDtdevolucao(Date dtdevolucao) {
+		this.dtdevolucao = dtdevolucao;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)

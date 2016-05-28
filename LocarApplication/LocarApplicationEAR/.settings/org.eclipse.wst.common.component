@@ -62,6 +62,9 @@
         <dependent-module archiveName="LocarApplicationWSClient-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/LocarApplicationWSClient/LocarApplicationWSClient">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="commons-lang3-3.4.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="log4j-core-2.5.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/org/apache/logging/log4j/log4j-core/2.5/log4j-core-2.5.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>

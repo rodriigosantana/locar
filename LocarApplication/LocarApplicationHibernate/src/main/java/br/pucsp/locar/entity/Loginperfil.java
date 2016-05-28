@@ -1,5 +1,5 @@
 package br.pucsp.locar.entity;
-// Generated 15/05/2016 13:10:26 by Hibernate Tools 4.3.1.Final
+// Generated 28/05/2016 00:02:55 by Hibernate Tools 4.3.1.Final
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -32,12 +32,11 @@ public class Loginperfil implements java.io.Serializable {
 	public Loginperfil() {
 	}
 
-	public Loginperfil(LoginperfilId id, Login login, Tipoperfil tipoperfil, Date dtinclusao, Date dtalteracao) {
+	public Loginperfil(LoginperfilId id, Login login, Tipoperfil tipoperfil, Date dtinclusao) {
 		this.id = id;
 		this.login = login;
 		this.tipoperfil = tipoperfil;
 		this.dtinclusao = dtinclusao;
-		this.dtalteracao = dtalteracao;
 	}
 
 	public Loginperfil(LoginperfilId id, Login login, Tipoperfil tipoperfil, BigDecimal mediaavaliacao, Date dtinclusao,
@@ -103,7 +102,7 @@ public class Loginperfil implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "dtalteracao", nullable = false, length = 19)
+	@Column(name = "dtalteracao", length = 19)
 	public Date getDtalteracao() {
 		return this.dtalteracao;
 	}

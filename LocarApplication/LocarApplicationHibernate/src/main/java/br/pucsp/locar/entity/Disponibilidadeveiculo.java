@@ -1,6 +1,7 @@
 package br.pucsp.locar.entity;
-// Generated 15/05/2016 13:10:26 by Hibernate Tools 4.3.1.Final
+// Generated 28/05/2016 00:02:55 by Hibernate Tools 4.3.1.Final
 
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,17 +26,19 @@ public class Disponibilidadeveiculo implements java.io.Serializable {
 	private Endereco endereco;
 	private Localizacao localizacao;
 	private Veiculo veiculo;
+	private BigDecimal valorLocacao;
 	private Date dtinicio;
 	private Date dtfinal;
 
 	public Disponibilidadeveiculo() {
 	}
 
-	public Disponibilidadeveiculo(Endereco endereco, Localizacao localizacao, Veiculo veiculo, Date dtinicio,
-			Date dtfinal) {
+	public Disponibilidadeveiculo(Endereco endereco, Localizacao localizacao, Veiculo veiculo, BigDecimal valorLocacao,
+			Date dtinicio, Date dtfinal) {
 		this.endereco = endereco;
 		this.localizacao = localizacao;
 		this.veiculo = veiculo;
+		this.valorLocacao = valorLocacao;
 		this.dtinicio = dtinicio;
 		this.dtfinal = dtfinal;
 	}
@@ -80,6 +83,15 @@ public class Disponibilidadeveiculo implements java.io.Serializable {
 
 	public void setVeiculo(Veiculo veiculo) {
 		this.veiculo = veiculo;
+	}
+
+	@Column(name = "valorLocacao", nullable = false, precision = 8)
+	public BigDecimal getValorLocacao() {
+		return this.valorLocacao;
+	}
+
+	public void setValorLocacao(BigDecimal valorLocacao) {
+		this.valorLocacao = valorLocacao;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
