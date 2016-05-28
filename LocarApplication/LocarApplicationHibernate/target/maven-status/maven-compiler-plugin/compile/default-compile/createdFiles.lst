@@ -2,12 +2,14 @@ br\pucsp\locar\entity\Statusreserva.class
 br\pucsp\locar\entity\Tipoperfil.class
 br\pucsp\locar\dao\QuestaoAvaliacaoDAO.class
 br\pucsp\locar\entity\AvaliacaolocacaoId.class
+br\pucsp\locar\entity\Pagamento.class
 br\pucsp\locar\entity\Montadoraveiculo.class
 br\pucsp\locar\connection\HibernateConnection.class
 TesteMain.class
 br\pucsp\locar\util\HibernateUtil.class
 br\pucsp\locar\entity\Disponibilidadeveiculo.class
 br\pucsp\locar\entity\Endereco.class
+br\pucsp\locar\dao\CadastroDAO.class
 br\pucsp\locar\dao\AvaliacaoDAO.class
 br\pucsp\locar\entity\Reserva.class
 br\pucsp\locar\entity\Localizacao.class
@@ -22,6 +24,7 @@ br\pucsp\locar\dao\TipoPerfilDAO.class
 br\pucsp\locar\entity\Questaoavaliacao.class
 br\pucsp\locar\entity\Login.class
 br\pucsp\locar\entity\Estado.class
+br\pucsp\locar\dao\ReservaDAO.class
 br\pucsp\locar\entity\Tipotelefone.class
 br\pucsp\locar\entity\Locacao.class
 br\pucsp\locar\entity\Avaliacao.class
@@ -31,5 +34,6 @@ br\pucsp\locar\dao\GenericoDAO.class
 br\pucsp\locar\entity\Loginperfil.class
 br\pucsp\locar\dao\VeiculoDAO.class
 br\pucsp\locar\entity\Tipoveiculo.class
+br\pucsp\locar\dao\LoginDAO.class
 br\pucsp\locar\entity\Telefone.class
 br\pucsp\locar\entity\Veiculo.class

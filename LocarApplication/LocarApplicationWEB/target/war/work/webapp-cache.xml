@@ -33,7 +33,7 @@
               <columnNumber>15</columnNumber>
               <source>
                 <modelId>br.com.pucsp.locar:LocarApplication:0.0.1-SNAPSHOT</modelId>
-                <location>E:\TCC\Workspace\Desenvolvimento_2016-05-11\LocarApplication\pom.xml</location>
+                <location>C:\Users\Rodrigo\git\locar\LocarApplication\pom.xml</location>
               </source>
             </org.apache.maven.model.InputLocation>
           </entry>

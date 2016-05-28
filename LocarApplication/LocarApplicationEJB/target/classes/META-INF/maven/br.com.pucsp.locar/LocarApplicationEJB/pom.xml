@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>br.com.pucsp.locar</groupId>
 		<artifactId>LocarApplication</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 	</parent>
 	<artifactId>LocarApplicationEJB</artifactId>
 	<name>LocarApplicationEJB</name>
@@ -38,18 +38,18 @@
 		<dependency>
 			<groupId>br.com.pucsp.locar</groupId>
 			<artifactId>LocarApplicationHibernate</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>br.com.pucsp.locar</groupId>
 			<artifactId>LocarApplicationEJBClient</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>br.com.pucsp.locar</groupId>
 			<artifactId>LocarApplicationWSClient</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
