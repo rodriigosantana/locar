@@ -6,6 +6,8 @@ import javax.ws.rs.core.Application;
 
 import br.pucsp.locar.ws.json.AvaliacaoLocarJSON;
 import br.pucsp.locar.ws.json.CadastroLocarJSON;
+import br.pucsp.locar.ws.json.ConsultaLocarJSON;
+import br.pucsp.locar.ws.json.ReservaLocarJSON;
 
 /*ESSA CLASSE VAMOS PRECISAR ADICIONAR NO ARQUIVO DE CONFIGURAÇÃO(web.xml)*/
 
@@ -18,6 +20,8 @@ public class Servico extends Application {
 	public Servico() {
 		singletons.add(new CadastroLocarJSON());
 		singletons.add(new AvaliacaoLocarJSON());
+		singletons.add(new ConsultaLocarJSON());
+		singletons.add(new ReservaLocarJSON());
 	}
 
 	public Set<Object> getSingletons() {
