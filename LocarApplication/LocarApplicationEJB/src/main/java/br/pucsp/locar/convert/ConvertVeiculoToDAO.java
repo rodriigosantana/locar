@@ -1,4 +1,4 @@
-package br.pucsp.locar.dao;
+package br.pucsp.locar.convert;
 
 import br.pucsp.locar.entity.Login;
 import br.pucsp.locar.entity.Modeloveiculo;

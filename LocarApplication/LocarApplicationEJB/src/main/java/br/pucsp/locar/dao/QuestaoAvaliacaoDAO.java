@@ -12,6 +12,44 @@ import br.pucsp.locar.util.HibernateUtil;
 
 public class QuestaoAvaliacaoDAO {
 	
+	public boolean isQuestao(int codQuestao){
+		
+		System.out.println("Inicio do metodo isQuestao - QuestaoAvaliacaoDAO");
+		
+		boolean result = true;
+		
+		Session session = HibernateUtil.openSession();
+		
+		try{
+			
+			Query query = session.createQuery("from Questaoavaliacao where idQuestao = :idQuestao ");
+			query.setParameter("idQuestao", codQuestao);
+
+			Object object = query.uniqueResult();
+			
+			if(object == null){
+				
+				result = false;
+				
+			}
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			System.out.println("Não foi possível isQuestao - Erro: " + e.getMessage());
+			
+		} finally {
+			
+			HibernateUtil.closeSession(session);
+			
+		}
+		
+		System.out.println("Final do metodo isQuestao - QuestaoAvaliacaoDAO");
+		
+		return result;
+		
+	}
+	
 	public List<Questaoavaliacao> listarByCodPerfil(final int codPerfil) {
 		
 		System.out.println("Inicio do metodo listarByCodPerfil - QuestaoAvaliacaoDAO"); 

@@ -2,16 +2,18 @@ package br.pucsp.locar.business;
 
 import javax.ejb.Stateless;
 
-import br.pucsp.locar.dao.ConvertCadastroToDAO;
-import br.pucsp.locar.dao.ConvertVeiculoToDAO;
+import br.pucsp.locar.convert.ConvertCadastroToDAO;
+import br.pucsp.locar.convert.ConvertVeiculoToDAO;
 import br.pucsp.locar.fabrica.DAOFabrica;
 import br.pucsp.locar.ilocal.CadastroLocal;
 import br.pucsp.locar.iremote.CadastroRemote;
 import br.pucsp.locar.util.CadastroValidatorUtils;
+import br.pucsp.locar.vo.LoginVO;
 import br.pucsp.locar.ws.vo.CadastroUsuarioRequestVO;
 import br.pucsp.locar.ws.vo.CadastroVeiculoRequestVO;
 import br.pucsp.locar.ws.vo.CadastroVeiculoResponseVO;
 import br.pucsp.locar.ws.vo.DefaultResponseVO;
+import br.pucsp.locar.ws.vo.LoginResponseVO;
 
 @Stateless
 public class CadastroBusiness implements CadastroLocal, CadastroRemote {
@@ -139,6 +141,38 @@ public class CadastroBusiness implements CadastroLocal, CadastroRemote {
 		System.out.println("Finalizando o metodo cadastrarUsuario - CadastroBusiness");
 		
 		return response;
+	}
+
+	@Override
+	public LoginResponseVO realizarLogin(LoginVO login) {
+
+		System.out.println("Iniciado o metodo realizarLogin - CadastroBusiness");
+		
+		LoginResponseVO response = new LoginResponseVO();
+		
+		try{
+			
+			response.setCodigoRetorno(0);
+			response.setMensagemRetorno("OK");
+			response.setMotivo("");
+			response.setSuccess(true);
+			
+			
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			System.out.println("Houve erro no metodo realizarLogin - Erro: " + e.getMessage());
+			
+			throw e;
+		} finally {
+		
+			System.out.println("Finalizando o metodo realizarLogin - CadastroBusiness");
+			
+		}
+		
+		return response;
+		
 	}
 	
 }

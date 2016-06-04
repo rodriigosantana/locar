@@ -1,9 +1,7 @@
-package br.pucsp.locar.ws.json;
+package br.pucsp.locar.ws.xml;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import javax.jws.WebMethod;
+import javax.jws.WebService;
 
 import br.pucsp.locar.vo.LoginVO;
 import br.pucsp.locar.ws.util.InjectEJBUtils;
@@ -13,14 +11,10 @@ import br.pucsp.locar.ws.vo.CadastroVeiculoResponseVO;
 import br.pucsp.locar.ws.vo.DefaultResponseVO;
 import br.pucsp.locar.ws.vo.LoginResponseVO;
 
-@Path("/CadastroLocarJSON")
-public class CadastroLocarJSON {
-	
-//	private static final Logger LOG = Logger.getLogger(CadastroLocarRequest.class);
-	
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/realizarLogin")
+@WebService
+public class CadastroLocarWS {
+
+	@WebMethod
 	public LoginResponseVO realizarLogin(LoginVO request){
 		
 		LoginResponseVO response = null;
@@ -46,9 +40,7 @@ public class CadastroLocarJSON {
 		return response;
 	}
 	
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/verificarLogin")
+	@WebMethod
 	public DefaultResponseVO verificarLogin(CadastroUsuarioRequestVO request){
 		
 		DefaultResponseVO response = null;
@@ -74,9 +66,7 @@ public class CadastroLocarJSON {
 		
 	}
 	
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/cadastroUsuario")
+	@WebMethod
 	public DefaultResponseVO cadastroUsuario(CadastroUsuarioRequestVO request){
 		
 		DefaultResponseVO response = null;
@@ -102,9 +92,7 @@ public class CadastroLocarJSON {
 		
 	}
 	
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/cadastrarVeiculo")
+	@WebMethod
 	public CadastroVeiculoResponseVO cadastrarVeiculo(CadastroVeiculoRequestVO request){
 		
 		CadastroVeiculoResponseVO response = null;
@@ -131,5 +119,5 @@ public class CadastroLocarJSON {
 		return response;
 		
 	}
-
+	
 }

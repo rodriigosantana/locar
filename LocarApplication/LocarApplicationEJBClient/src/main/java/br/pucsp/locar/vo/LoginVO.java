@@ -8,14 +8,14 @@ public class LoginVO implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 2852459418561115920L;
-	private String idLogin;
+	private String codigoLogin;
 	private String senha;
 	
-	public String getIdLogin() {
-		return idLogin;
+	public String getCodigoLogin() {
+		return codigoLogin;
 	}
-	public void setIdLogin(String idLogin) {
-		this.idLogin = idLogin;
+	public void setCodigoLogin(String codigoLogin) {
+		this.codigoLogin = codigoLogin;
 	}
 	public String getSenha() {
 		return senha;

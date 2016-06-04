@@ -2,6 +2,7 @@ package br.pucsp.locar.fabrica;
 
 import br.pucsp.locar.dao.AvaliacaoDAO;
 import br.pucsp.locar.dao.CadastroDAO;
+import br.pucsp.locar.dao.LocacaoDAO;
 import br.pucsp.locar.dao.LoginDAO;
 import br.pucsp.locar.dao.QuestaoAvaliacaoDAO;
 import br.pucsp.locar.dao.ReservaDAO;
@@ -17,6 +18,7 @@ public class DAOFabrica {
 	private static LoginDAO loginDAO;
 	private static CadastroDAO cadastroDAO;
 	private static ReservaDAO reservaDAO;
+	private static LocacaoDAO locacaoDAO;
 	
 	public static QuestaoAvaliacaoDAO getQuestaoAvaliacaoDAO() {
 		
@@ -73,6 +75,13 @@ public class DAOFabrica {
 			reservaDAO = new ReservaDAO();
 		}
 		return reservaDAO;
+	}
+	
+	public static LocacaoDAO getLocacaoDAO(){
+		if(locacaoDAO == null){
+			locacaoDAO = new LocacaoDAO();
+		}
+		return locacaoDAO;
 	}
 	
 }

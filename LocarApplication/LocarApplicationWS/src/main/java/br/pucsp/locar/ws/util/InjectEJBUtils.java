@@ -10,6 +10,7 @@ import javax.naming.NamingException;
 import br.pucsp.locar.iremote.AvaliacaoRemote;
 import br.pucsp.locar.iremote.CadastroRemote;
 import br.pucsp.locar.iremote.ConsultaRemote;
+import br.pucsp.locar.iremote.LocacaoRemote;
 import br.pucsp.locar.iremote.QuestionarioRemote;
 import br.pucsp.locar.iremote.ReservaRemote;
 
@@ -25,6 +26,8 @@ public class InjectEJBUtils {
 	private static ReservaRemote reservaRemote;
 	@EJB
 	private static ConsultaRemote consultaRemote;
+	@EJB
+	private static LocacaoRemote locacaoRemote;
 
 	public static AvaliacaoRemote getAvaliacaoRemoteEjb() {
 		try {
@@ -104,4 +107,20 @@ public class InjectEJBUtils {
 		return consultaRemote;
 	}
 
+	public static LocacaoRemote getLocacaoRemoteEjb() {
+		try {
+			
+			final  Hashtable jndiProperties =  new  Hashtable (); 
+			jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+			
+			Context ctx = new InitialContext(jndiProperties);
+			
+			String lookupName = "java:jboss/exported/LocarApplicationEAR-0.0.1-SNAPSHOT/LocarApplicationEJB/LocacaoBusiness!br.pucsp.locar.iremote.LocacaoRemote";
+			locacaoRemote = (LocacaoRemote) ctx.lookup(lookupName);
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+		return locacaoRemote;
+	}
+	
 }

@@ -1,6 +1,6 @@
 package br.pucsp.locar.business;
 
-import br.pucsp.locar.dao.ConvertReservaToDAO;
+import br.pucsp.locar.convert.ConvertReservaToDAO;
 import br.pucsp.locar.fabrica.DAOFabrica;
 import br.pucsp.locar.ilocal.ReservaLocal;
 import br.pucsp.locar.iremote.ReservaRemote;

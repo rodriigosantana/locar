@@ -1,4 +1,4 @@
-package br.pucsp.locar.dao;
+package br.pucsp.locar.convert;
 
 import java.text.SimpleDateFormat;
 
