@@ -3,22 +3,23 @@ package br.pucsp.locar.business;
 import javax.ejb.Stateless;
 
 import br.pucsp.locar.convert.ConvertAvaliacaoToDAO;
+import br.pucsp.locar.fabrica.ClientWSFactory;
 import br.pucsp.locar.fabrica.DAOFabrica;
 import br.pucsp.locar.ilocal.AvaliacaoLocal;
 import br.pucsp.locar.iremote.AvaliacaoRemote;
 import br.pucsp.locar.util.AvaliacaoValidatorUtils;
-import br.pucsp.locar.ws.vo.AvaliacaoRequestVO;
-import br.pucsp.locar.ws.vo.AvaliacaoResponseVO;
+import br.pucsp.locar.ws.dto.AvaliacaoRequestDTO;
+import br.pucsp.locar.ws.dto.AvaliacaoResponseDTO;
 
 @Stateless
 public class AvaliacaoBusiness implements AvaliacaoLocal, AvaliacaoRemote {
 
 	@Override
-	public AvaliacaoResponseVO enviarAvaliacao(AvaliacaoRequestVO request) {
+	public AvaliacaoResponseDTO enviarAvaliacao(AvaliacaoRequestDTO request) {
 
 		System.out.println("Inicio do metodo enviarAvaliacao - AvaliacaoBusiness"); 
 		
-		AvaliacaoResponseVO response = new AvaliacaoResponseVO();
+		AvaliacaoResponseDTO response = new AvaliacaoResponseDTO();
 		
 		String msgValidacao = "";
 		
@@ -46,7 +47,6 @@ public class AvaliacaoBusiness implements AvaliacaoLocal, AvaliacaoRemote {
 			System.out.println("Houve erro no metodo enviarAvaliacao. Erro: " + e.getMessage());
 			e.printStackTrace();
 			
-			throw e;
 		}
 		
 		System.out.println("Final do metodo enviarAvaliacao - AvaliacaoBusiness");

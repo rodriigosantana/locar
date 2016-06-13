@@ -2,12 +2,12 @@ package br.pucsp.locar.ilocal;
 
 import javax.ejb.Local;
 
-import br.pucsp.locar.ws.vo.AvaliacaoRequestVO;
-import br.pucsp.locar.ws.vo.AvaliacaoResponseVO;
+import br.pucsp.locar.ws.dto.AvaliacaoRequestDTO;
+import br.pucsp.locar.ws.dto.AvaliacaoResponseDTO;
 
 @Local
 public interface AvaliacaoLocal {
 
-	public AvaliacaoResponseVO enviarAvaliacao(AvaliacaoRequestVO request);
+	public AvaliacaoResponseDTO enviarAvaliacao(AvaliacaoRequestDTO request);
 	
 }

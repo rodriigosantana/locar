@@ -5,17 +5,17 @@ import br.pucsp.locar.fabrica.DAOFabrica;
 import br.pucsp.locar.ilocal.ReservaLocal;
 import br.pucsp.locar.iremote.ReservaRemote;
 import br.pucsp.locar.util.ReservaValidatorUtils;
-import br.pucsp.locar.ws.vo.ReservaRequestVO;
-import br.pucsp.locar.ws.vo.ReservaResponseVO;
+import br.pucsp.locar.ws.dto.ReservaRequestDTO;
+import br.pucsp.locar.ws.dto.ReservaResponseDTO;
 
 public class ReservaBusiness implements ReservaLocal, ReservaRemote{
 
 	@Override
-	public ReservaResponseVO realizarReserva(ReservaRequestVO request) {
+	public ReservaResponseDTO realizarReserva(ReservaRequestDTO request) {
 		
 		System.out.println("Inicio do metodo realizarReserva - ReservaBusiness"); 
 		
-		ReservaResponseVO response = new ReservaResponseVO();
+		ReservaResponseDTO response = new ReservaResponseDTO();
 		
 		try{
 		

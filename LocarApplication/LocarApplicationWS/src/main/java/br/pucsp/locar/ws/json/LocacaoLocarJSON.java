@@ -5,9 +5,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import br.pucsp.locar.ws.dto.LocacaoRequestDTO;
+import br.pucsp.locar.ws.dto.LocacaoResponseDTO;
 import br.pucsp.locar.ws.util.InjectEJBUtils;
-import br.pucsp.locar.ws.vo.LocacaoRequestVO;
-import br.pucsp.locar.ws.vo.LocacaoResponseVO;
 
 @Path("/LocacaoLocarJSON")
 public class LocacaoLocarJSON {
@@ -15,9 +15,9 @@ public class LocacaoLocarJSON {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/realizarLocacao")
-	public LocacaoResponseVO realizarLocacao(LocacaoRequestVO request){
+	public LocacaoResponseDTO realizarLocacao(LocacaoRequestDTO request){
 		
-		LocacaoResponseVO response = null;
+		LocacaoResponseDTO response = null;
 		String msgErro = "";
 		
 		try{
@@ -31,7 +31,7 @@ public class LocacaoLocarJSON {
 
 		}
 		if ( response == null ) {
-			response = new LocacaoResponseVO();
+			response = new LocacaoResponseDTO();
 			response.setCodigoRetorno(99);
 			response.setMensagemRetorno("Houve erro no processamento! - Erro: " + msgErro);
 		}

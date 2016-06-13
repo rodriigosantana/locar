@@ -1,10 +1,10 @@
 package br.pucsp.locar.ilocal;
 
-import br.pucsp.locar.ws.vo.LocacaoRequestVO;
-import br.pucsp.locar.ws.vo.LocacaoResponseVO;
+import br.pucsp.locar.ws.dto.LocacaoRequestDTO;
+import br.pucsp.locar.ws.dto.LocacaoResponseDTO;
 
 public interface LocacaoLocal {
 
-	public LocacaoResponseVO realizarLocacao(LocacaoRequestVO request);
+	public LocacaoResponseDTO realizarLocacao(LocacaoRequestDTO request);
 	
 }

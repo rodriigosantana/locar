@@ -5,11 +5,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import br.pucsp.locar.ws.dto.AvaliacaoRequestDTO;
+import br.pucsp.locar.ws.dto.AvaliacaoResponseDTO;
+import br.pucsp.locar.ws.dto.QuestionarioResponseDTO;
 import br.pucsp.locar.ws.json.request.QuestionarioRequest;
 import br.pucsp.locar.ws.util.InjectEJBUtils;
-import br.pucsp.locar.ws.vo.AvaliacaoRequestVO;
-import br.pucsp.locar.ws.vo.AvaliacaoResponseVO;
-import br.pucsp.locar.ws.vo.QuestionarioResponseVO;
 
 @Path("/AvaliacaoLocarJSON")
 public class AvaliacaoLocarJSON {
@@ -17,11 +17,11 @@ public class AvaliacaoLocarJSON {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/consultarQuestionario")
-	public QuestionarioResponseVO consultarQuestionario(QuestionarioRequest request){
+	public QuestionarioResponseDTO consultarQuestionario(QuestionarioRequest request){
 
 		//		LOG.info("-- Inicio do metodo QuestionarioJSON --");
 
-		QuestionarioResponseVO response = null;
+		QuestionarioResponseDTO response = null;
 		String msgErro = "";
 		
 		try{
@@ -37,7 +37,7 @@ public class AvaliacaoLocarJSON {
 
 		}
 		if ( response == null ) {
-			response = new QuestionarioResponseVO();
+			response = new QuestionarioResponseDTO();
 			response.setCodigoRetorno(99);
 			response.setMensagemRetorno("Houve erro no processamento! - Erro: " + msgErro);
 		}
@@ -50,9 +50,9 @@ public class AvaliacaoLocarJSON {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/enviarAvaliacao")
-	public AvaliacaoResponseVO enviarAvaliacao(AvaliacaoRequestVO request){
+	public AvaliacaoResponseDTO enviarAvaliacao(AvaliacaoRequestDTO request){
 		
-		AvaliacaoResponseVO response = null;
+		AvaliacaoResponseDTO response = null;
 		String msgErro = "";
 		
 		try{
@@ -69,7 +69,7 @@ public class AvaliacaoLocarJSON {
 		}
 		
 		if ( response == null ) {
-			response = new AvaliacaoResponseVO();
+			response = new AvaliacaoResponseDTO();
 			response.setCodigoRetorno(99);
 			response.setMensagemRetorno("Houve erro no processamento! - Erro: " + msgErro);
 		}

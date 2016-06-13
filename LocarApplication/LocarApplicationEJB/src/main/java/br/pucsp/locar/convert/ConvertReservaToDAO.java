@@ -5,13 +5,13 @@ import java.text.SimpleDateFormat;
 import br.pucsp.locar.entity.Login;
 import br.pucsp.locar.entity.Reserva;
 import br.pucsp.locar.entity.Veiculo;
-import br.pucsp.locar.ws.vo.ReservaRequestVO;
+import br.pucsp.locar.ws.dto.ReservaRequestDTO;
 
 public class ConvertReservaToDAO {
 	
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
-	public static Reserva reservaRequestVOToReserva(ReservaRequestVO request){
+	public static Reserva reservaRequestVOToReserva(ReservaRequestDTO request){
 		
 		Reserva reserva = new Reserva();
 		

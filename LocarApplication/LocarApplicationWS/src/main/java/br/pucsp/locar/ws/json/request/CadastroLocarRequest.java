@@ -2,25 +2,25 @@ package br.pucsp.locar.ws.json.request;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import br.pucsp.locar.vo.LoginVO;
-import br.pucsp.locar.vo.UsuarioVO;
+import br.pucsp.locar.dto.LoginDTO;
+import br.pucsp.locar.dto.UsuarioDTO;
 
 @XmlRootElement
 public class CadastroLocarRequest {
 	
-	private LoginVO loginVO;
-	private UsuarioVO usuarioVO;
+	private LoginDTO loginVO;
+	private UsuarioDTO usuarioVO;
 	
-	public LoginVO getLoginVO() {
+	public LoginDTO getLoginVO() {
 		return loginVO;
 	}
-	public void setLoginVO(LoginVO loginVO) {
+	public void setLoginVO(LoginDTO loginVO) {
 		this.loginVO = loginVO;
 	}
-	public UsuarioVO getUsuarioVO() {
+	public UsuarioDTO getUsuarioVO() {
 		return usuarioVO;
 	}
-	public void setUsuarioVO(UsuarioVO usuarioVO) {
+	public void setUsuarioVO(UsuarioDTO usuarioVO) {
 		this.usuarioVO = usuarioVO;
 	}
 	

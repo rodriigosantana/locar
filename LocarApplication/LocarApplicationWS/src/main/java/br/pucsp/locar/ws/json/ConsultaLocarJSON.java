@@ -5,9 +5,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import br.pucsp.locar.ws.dto.ConsultaVeiculoRequestDTO;
+import br.pucsp.locar.ws.dto.ConsultaVeiculoResponseDTO;
 import br.pucsp.locar.ws.util.InjectEJBUtils;
-import br.pucsp.locar.ws.vo.ConsultaVeiculoRequestVO;
-import br.pucsp.locar.ws.vo.ConsultaVeiculoResponseVO;
 
 @Path("/ConsultaLocarJSON")
 public class ConsultaLocarJSON {
@@ -17,9 +17,9 @@ public class ConsultaLocarJSON {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/realizarReserva")
-	public ConsultaVeiculoResponseVO consultarListaVeiculo(ConsultaVeiculoRequestVO request){
+	public ConsultaVeiculoResponseDTO consultarListaVeiculo(ConsultaVeiculoRequestDTO request){
 		
-		ConsultaVeiculoResponseVO response = null;
+		ConsultaVeiculoResponseDTO response = null;
 		String msgErro = "";
 		
 		try{
@@ -33,7 +33,7 @@ public class ConsultaLocarJSON {
 
 		}
 		if ( response == null ) {
-			response = new ConsultaVeiculoResponseVO();
+			response = new ConsultaVeiculoResponseDTO();
 			response.setCodigoRetorno(99);
 			response.setMensagemRetorno("Houve erro no processamento! - Erro: " + msgErro);
 		}

@@ -2,11 +2,11 @@ package br.pucsp.locar.iremote;
 
 import javax.ejb.Remote;
 
-import br.pucsp.locar.ws.vo.QuestionarioResponseVO;
+import br.pucsp.locar.ws.dto.QuestionarioResponseDTO;
 
 @Remote
 public interface QuestionarioRemote {
 
-	public QuestionarioResponseVO consultarQuestionario(final int codQuestao);
+	public QuestionarioResponseDTO consultarQuestionario(final int codQuestao);
 	
 }

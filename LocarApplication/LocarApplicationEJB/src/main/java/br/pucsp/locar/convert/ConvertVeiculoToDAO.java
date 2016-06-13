@@ -3,11 +3,11 @@ package br.pucsp.locar.convert;
 import br.pucsp.locar.entity.Login;
 import br.pucsp.locar.entity.Modeloveiculo;
 import br.pucsp.locar.entity.Veiculo;
-import br.pucsp.locar.ws.vo.CadastroVeiculoRequestVO;
+import br.pucsp.locar.ws.dto.CadastroVeiculoRequestDTO;
 
 public class ConvertVeiculoToDAO {
 
-	public static Veiculo cadastroVeiculoRequestVOToVeiculo(CadastroVeiculoRequestVO request){
+	public static Veiculo cadastroVeiculoRequestVOToVeiculo(CadastroVeiculoRequestDTO request){
 		
 		Veiculo veiculo = new Veiculo();
 		

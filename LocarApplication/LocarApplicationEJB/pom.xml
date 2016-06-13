@@ -37,7 +37,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>br.com.pucsp.locar</groupId>
-			<artifactId>LocarApplicationHibernate</artifactId>
+			<artifactId>LocarApplicationPersistencia</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>

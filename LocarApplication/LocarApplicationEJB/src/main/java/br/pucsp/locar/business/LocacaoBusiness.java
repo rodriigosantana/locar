@@ -2,14 +2,14 @@ package br.pucsp.locar.business;
 
 import br.pucsp.locar.ilocal.LocacaoLocal;
 import br.pucsp.locar.iremote.LocacaoRemote;
-import br.pucsp.locar.ws.vo.LocacaoRequestVO;
-import br.pucsp.locar.ws.vo.LocacaoResponseVO;
+import br.pucsp.locar.ws.dto.LocacaoRequestDTO;
+import br.pucsp.locar.ws.dto.LocacaoResponseDTO;
 
 public class LocacaoBusiness implements LocacaoLocal, LocacaoRemote{
 
-	public LocacaoResponseVO realizarLocacao(LocacaoRequestVO request) {
+	public LocacaoResponseDTO realizarLocacao(LocacaoRequestDTO request) {
 		
-		LocacaoResponseVO response = new LocacaoResponseVO();
+		LocacaoResponseDTO response = new LocacaoResponseDTO();
 		
 		
 		

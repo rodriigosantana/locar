@@ -2,12 +2,12 @@ package br.pucsp.locar.ilocal;
 
 import javax.ejb.Local;
 
-import br.pucsp.locar.ws.vo.ReservaRequestVO;
-import br.pucsp.locar.ws.vo.ReservaResponseVO;
+import br.pucsp.locar.ws.dto.ReservaRequestDTO;
+import br.pucsp.locar.ws.dto.ReservaResponseDTO;
 
 @Local
 public interface ReservaLocal {
 
-	public ReservaResponseVO realizarReserva(ReservaRequestVO request);
+	public ReservaResponseDTO realizarReserva(ReservaRequestDTO request);
 	
 }

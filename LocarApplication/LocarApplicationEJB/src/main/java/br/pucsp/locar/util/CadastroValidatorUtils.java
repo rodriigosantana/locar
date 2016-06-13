@@ -2,15 +2,15 @@ package br.pucsp.locar.util;
 
 import java.util.List;
 
-import br.pucsp.locar.vo.EnderecoVO;
-import br.pucsp.locar.vo.TelefoneVO;
-import br.pucsp.locar.vo.UsuarioVO;
-import br.pucsp.locar.ws.vo.CadastroUsuarioRequestVO;
-import br.pucsp.locar.ws.vo.CadastroVeiculoRequestVO;
+import br.pucsp.locar.dto.EnderecoDTO;
+import br.pucsp.locar.dto.TelefoneDTO;
+import br.pucsp.locar.dto.UsuarioDTO;
+import br.pucsp.locar.ws.dto.CadastroUsuarioRequestDTO;
+import br.pucsp.locar.ws.dto.CadastroVeiculoRequestDTO;
 
 public class CadastroValidatorUtils {
 
-	public static String validarDadosCadastroVeiculo(CadastroVeiculoRequestVO request){
+	public static String validarDadosCadastroVeiculo(CadastroVeiculoRequestDTO request){
 		
 		StringBuilder msgResult = new StringBuilder();
 		
@@ -48,7 +48,7 @@ public class CadastroValidatorUtils {
 		return msgResult.toString();
 	}
 	
-	public static String validarDadosCadastroUsuario(CadastroUsuarioRequestVO request){
+	public static String validarDadosCadastroUsuario(CadastroUsuarioRequestDTO request){
 		
 		StringBuilder msgResult = new StringBuilder();
 		
@@ -73,7 +73,7 @@ public class CadastroValidatorUtils {
 				}
 			}
 			
-			UsuarioVO usuario = request.getUsuarioVO();
+			UsuarioDTO usuario = request.getUsuarioVO();
 			
 			if(usuario == null){
 				msgResult.append("Usuario não informado;");
@@ -107,7 +107,7 @@ public class CadastroValidatorUtils {
 				
 			}
 			
-			EnderecoVO endereco = request.getEnderecoVO();
+			EnderecoDTO endereco = request.getEnderecoVO();
 			
 			if (endereco == null) {
 				msgResult.append("Endereço não informado;");
@@ -136,7 +136,7 @@ public class CadastroValidatorUtils {
 				}
 			}
 			
-			List<TelefoneVO> listaTelefone = request.getTelefoneVO();
+			List<TelefoneDTO> listaTelefone = request.getTelefoneVO();
 			
 			if (listaTelefone == null || listaTelefone.isEmpty()){
 				msgResult.append("Telefones não informado;");
@@ -144,7 +144,7 @@ public class CadastroValidatorUtils {
 
 				int contAux = 0;
 				
-				for(TelefoneVO tel : listaTelefone){
+				for(TelefoneDTO tel : listaTelefone){
 					
 					if (tel.getTipoTelefone() == 0){
 						msgResult.append("Telefone["+contAux+"]: Tipo de Telefone não informado;");

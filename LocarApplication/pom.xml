@@ -50,7 +50,7 @@
 	</dependencies>
 
 	<modules>
-		<module>LocarApplicationHibernate</module>
+		<module>LocarApplicationPersistencia</module>
 		<module>LocarApplicationEJB</module>
 		<module>LocarApplicationWEB</module>
 		<module>LocarApplicationEAR</module>

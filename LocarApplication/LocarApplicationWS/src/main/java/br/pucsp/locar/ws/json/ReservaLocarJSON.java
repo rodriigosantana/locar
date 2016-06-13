@@ -5,9 +5,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import br.pucsp.locar.ws.dto.ReservaRequestDTO;
+import br.pucsp.locar.ws.dto.ReservaResponseDTO;
 import br.pucsp.locar.ws.util.InjectEJBUtils;
-import br.pucsp.locar.ws.vo.ReservaRequestVO;
-import br.pucsp.locar.ws.vo.ReservaResponseVO;
 
 @Path("/ReservaLocarJSON")
 public class ReservaLocarJSON {
@@ -17,9 +17,9 @@ public class ReservaLocarJSON {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/realizarReserva")
-	public ReservaResponseVO realizarReserva(ReservaRequestVO request){
+	public ReservaResponseDTO realizarReserva(ReservaRequestDTO request){
 		
-		ReservaResponseVO response = null;
+		ReservaResponseDTO response = null;
 		String msgErro = "";
 		
 		try{
@@ -33,7 +33,7 @@ public class ReservaLocarJSON {
 
 		}
 		if ( response == null ) {
-			response = new ReservaResponseVO();
+			response = new ReservaResponseDTO();
 			response.setCodigoRetorno(99);
 			response.setMensagemRetorno("Houve erro no processamento! - Erro: " + msgErro);
 		}

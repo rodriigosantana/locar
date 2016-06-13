@@ -3,18 +3,18 @@ package br.pucsp.locar.convert;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.pucsp.locar.dto.EnderecoDTO;
+import br.pucsp.locar.dto.TelefoneDTO;
 import br.pucsp.locar.entity.Endereco;
 import br.pucsp.locar.entity.Login;
 import br.pucsp.locar.entity.Telefone;
 import br.pucsp.locar.entity.Tipotelefone;
 import br.pucsp.locar.entity.Usuario;
-import br.pucsp.locar.vo.EnderecoVO;
-import br.pucsp.locar.vo.TelefoneVO;
-import br.pucsp.locar.ws.vo.CadastroUsuarioRequestVO;
+import br.pucsp.locar.ws.dto.CadastroUsuarioRequestDTO;
 
 public class ConvertCadastroToDAO {
 
-	public static Usuario cadastroUsuarioRequestVOToUsuario(CadastroUsuarioRequestVO request){
+	public static Usuario cadastroUsuarioRequestVOToUsuario(CadastroUsuarioRequestDTO request){
 		
 		Usuario usuario = new Usuario();
 		
@@ -29,7 +29,7 @@ public class ConvertCadastroToDAO {
 		return usuario;
 	}
 	
-	public static Endereco cadastroEnderecoRequestVOToEndereco(EnderecoVO enderecoVO){
+	public static Endereco cadastroEnderecoRequestVOToEndereco(EnderecoDTO enderecoVO){
 		
 		Endereco endereco = new Endereco();
 		
@@ -40,7 +40,7 @@ public class ConvertCadastroToDAO {
 		return endereco;
 	}
 	
-	public static Login cadastroLoginRequestVOToLogin(CadastroUsuarioRequestVO request){
+	public static Login cadastroLoginRequestVOToLogin(CadastroUsuarioRequestDTO request){
 		
 		Login login = new Login();
 		
@@ -50,11 +50,11 @@ public class ConvertCadastroToDAO {
 		return login;
 	}
 	
-	public static List<Telefone> cadastroTelefoneRequestVOToTelefone(List<TelefoneVO> listaTelefoneVO){
+	public static List<Telefone> cadastroTelefoneRequestVOToTelefone(List<TelefoneDTO> listaTelefoneVO){
 		
 		List<Telefone> listaTelefone = new ArrayList<Telefone>();
 		
-		for (TelefoneVO telefoneVO : listaTelefoneVO){
+		for (TelefoneDTO telefoneVO : listaTelefoneVO){
 			
 			Telefone tel = new Telefone();
 			

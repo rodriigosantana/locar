@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+encoding//LocarApplicationWSClient/src/main/java/br/com/detran/DetranWS.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/detran/DetranWSService.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/detran/DetranWSServiceLocator.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/detran/DetranWSServiceSoapBindingStub.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/receitafederal/ReceitaFederal.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/receitafederal/ReceitaFederalService.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/receitafederal/ReceitaFederalServiceLocator.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/receitafederal/ReceitaFederalServiceSoapBindingStub.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/seguradora/Seguradora.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/seguradora/SeguradoraService.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/seguradora/SeguradoraServiceLocator.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/seguradora/SeguradoraServiceSoapBindingStub.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/serasa/SerasaWS.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/serasa/SerasaWSService.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/serasa/SerasaWSServiceLocator.java=UTF-8
+encoding//LocarApplicationWSClient/src/main/java/br/com/serasa/SerasaWSServiceSoapBindingStub.java=UTF-8

@@ -4,7 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>LocarApplicationEJB</project>
-		<project>LocarApplicationHibernate</project>
+		<project>LocarApplicationPersistencia</project>
 		<project>LocarApplicationWS</project>
 	</projects>
 	<buildSpec>

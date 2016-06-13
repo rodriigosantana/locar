@@ -2,11 +2,11 @@ package br.pucsp.locar.util;
 
 import java.text.SimpleDateFormat;
 
-import br.pucsp.locar.ws.vo.ReservaRequestVO;
+import br.pucsp.locar.ws.dto.ReservaRequestDTO;
 
 public class ReservaValidatorUtils {
 
-	public static String validarDadosReserva(ReservaRequestVO request){
+	public static String validarDadosReserva(ReservaRequestDTO request){
 		
 		StringBuilder msgResult = new StringBuilder();
 		

@@ -2,11 +2,11 @@ package br.pucsp.locar.ilocal;
 
 import javax.ejb.Local;
 
-import br.pucsp.locar.ws.vo.QuestionarioResponseVO;
+import br.pucsp.locar.ws.dto.QuestionarioResponseDTO;
 
 @Local
 public interface QuestionarioLocal {
 
-	public QuestionarioResponseVO consultarQuestionario(final int codQuestao);
+	public QuestionarioResponseDTO consultarQuestionario(final int codQuestao);
 	
 }

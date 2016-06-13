@@ -3,24 +3,24 @@ package br.pucsp.locar.business;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.pucsp.locar.dto.VeiculoDTO;
 import br.pucsp.locar.entity.Veiculo;
 import br.pucsp.locar.fabrica.DAOFabrica;
 import br.pucsp.locar.ilocal.ConsultaLocal;
 import br.pucsp.locar.iremote.ConsultaRemote;
-import br.pucsp.locar.vo.VeiculoVO;
-import br.pucsp.locar.ws.vo.ConsultaVeiculoRequestVO;
-import br.pucsp.locar.ws.vo.ConsultaVeiculoResponseVO;
+import br.pucsp.locar.ws.dto.ConsultaVeiculoRequestDTO;
+import br.pucsp.locar.ws.dto.ConsultaVeiculoResponseDTO;
 
 public class ConsultaBusiness implements ConsultaLocal, ConsultaRemote{
 
 	@Override
-	public ConsultaVeiculoResponseVO consultarListaVeiculo(ConsultaVeiculoRequestVO request) {
+	public ConsultaVeiculoResponseDTO consultarListaVeiculo(ConsultaVeiculoRequestDTO request) {
 		
 		System.out.println("Inicio do metodo consultarListaVeiculo - ConsultaBusiness"); 
 		
-		ConsultaVeiculoResponseVO response = new ConsultaVeiculoResponseVO();
+		ConsultaVeiculoResponseDTO response = new ConsultaVeiculoResponseDTO();
 		
-		List<VeiculoVO> veiculos = new ArrayList<VeiculoVO>();
+		List<VeiculoDTO> veiculos = new ArrayList<VeiculoDTO>();
 		
 		try{
 			
@@ -34,7 +34,7 @@ public class ConsultaBusiness implements ConsultaLocal, ConsultaRemote{
 					
 					for(Veiculo veiculo: listaVeiculo){
 						
-						VeiculoVO veiculoVO = new VeiculoVO();
+						VeiculoDTO veiculoVO = new VeiculoDTO();
 						
 						veiculoVO.setCapacidadeTanque(veiculo.getCapacidadeTanque());
 						veiculoVO.setChassi(veiculo.getChassi());

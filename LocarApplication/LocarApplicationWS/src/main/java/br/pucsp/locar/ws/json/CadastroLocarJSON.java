@@ -5,13 +5,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.pucsp.locar.vo.LoginVO;
+import br.pucsp.locar.dto.LoginDTO;
+import br.pucsp.locar.ws.dto.CadastroUsuarioRequestDTO;
+import br.pucsp.locar.ws.dto.CadastroVeiculoRequestDTO;
+import br.pucsp.locar.ws.dto.CadastroVeiculoResponseDTO;
+import br.pucsp.locar.ws.dto.DefaultResponseDTO;
+import br.pucsp.locar.ws.dto.LoginResponseDTO;
 import br.pucsp.locar.ws.util.InjectEJBUtils;
-import br.pucsp.locar.ws.vo.CadastroUsuarioRequestVO;
-import br.pucsp.locar.ws.vo.CadastroVeiculoRequestVO;
-import br.pucsp.locar.ws.vo.CadastroVeiculoResponseVO;
-import br.pucsp.locar.ws.vo.DefaultResponseVO;
-import br.pucsp.locar.ws.vo.LoginResponseVO;
 
 @Path("/CadastroLocarJSON")
 public class CadastroLocarJSON {
@@ -21,9 +21,9 @@ public class CadastroLocarJSON {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/realizarLogin")
-	public LoginResponseVO realizarLogin(LoginVO request){
+	public LoginResponseDTO realizarLogin(LoginDTO request){
 		
-		LoginResponseVO response = null;
+		LoginResponseDTO response = null;
 		
 		String msgErro = "";
 		
@@ -38,7 +38,7 @@ public class CadastroLocarJSON {
 
 		}
 		if ( response == null ) {
-			response = new LoginResponseVO();
+			response = new LoginResponseDTO();
 			response.setCodigoRetorno(99);
 			response.setMensagemRetorno("Houve erro no processamento! - Erro: " + msgErro);
 		}
@@ -49,9 +49,9 @@ public class CadastroLocarJSON {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/verificarLogin")
-	public DefaultResponseVO verificarLogin(CadastroUsuarioRequestVO request){
+	public DefaultResponseDTO verificarLogin(CadastroUsuarioRequestDTO request){
 		
-		DefaultResponseVO response = null;
+		DefaultResponseDTO response = null;
 		String msgErro = "";
 		
 		try{
@@ -65,7 +65,7 @@ public class CadastroLocarJSON {
 
 		}
 		if ( response == null ) {
-			response = new DefaultResponseVO();
+			response = new DefaultResponseDTO();
 			response.setCodigoRetorno(99);
 			response.setMensagemRetorno("Houve erro no processamento! - Erro: " + msgErro);
 		}
@@ -77,9 +77,9 @@ public class CadastroLocarJSON {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/cadastroUsuario")
-	public DefaultResponseVO cadastroUsuario(CadastroUsuarioRequestVO request){
+	public DefaultResponseDTO cadastroUsuario(CadastroUsuarioRequestDTO request){
 		
-		DefaultResponseVO response = null;
+		DefaultResponseDTO response = null;
 		String msgErro = "";
 		
 		try{
@@ -93,7 +93,7 @@ public class CadastroLocarJSON {
 
 		}
 		if ( response == null ) {
-			response = new DefaultResponseVO();
+			response = new DefaultResponseDTO();
 			response.setCodigoRetorno(99);
 			response.setMensagemRetorno("Houve erro no processamento! - Erro: " + msgErro);
 		}
@@ -105,9 +105,9 @@ public class CadastroLocarJSON {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/cadastrarVeiculo")
-	public CadastroVeiculoResponseVO cadastrarVeiculo(CadastroVeiculoRequestVO request){
+	public CadastroVeiculoResponseDTO cadastrarVeiculo(CadastroVeiculoRequestDTO request){
 		
-		CadastroVeiculoResponseVO response = null;
+		CadastroVeiculoResponseDTO response = null;
 		String msgErro = "";
 		
 		try{
@@ -123,7 +123,7 @@ public class CadastroLocarJSON {
 
 		}
 		if ( response == null ) {
-			response = new CadastroVeiculoResponseVO();
+			response = new CadastroVeiculoResponseDTO();
 			response.setCodigoRetorno(99);
 			response.setMensagemRetorno("Houve erro no processamento! - Erro: " + msgErro);
 		}

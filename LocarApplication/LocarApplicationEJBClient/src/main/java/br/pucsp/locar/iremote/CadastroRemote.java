@@ -2,22 +2,22 @@ package br.pucsp.locar.iremote;
 
 import javax.ejb.Remote;
 
-import br.pucsp.locar.vo.LoginVO;
-import br.pucsp.locar.ws.vo.CadastroUsuarioRequestVO;
-import br.pucsp.locar.ws.vo.CadastroVeiculoRequestVO;
-import br.pucsp.locar.ws.vo.CadastroVeiculoResponseVO;
-import br.pucsp.locar.ws.vo.DefaultResponseVO;
-import br.pucsp.locar.ws.vo.LoginResponseVO;
+import br.pucsp.locar.dto.LoginDTO;
+import br.pucsp.locar.ws.dto.CadastroUsuarioRequestDTO;
+import br.pucsp.locar.ws.dto.CadastroVeiculoRequestDTO;
+import br.pucsp.locar.ws.dto.CadastroVeiculoResponseDTO;
+import br.pucsp.locar.ws.dto.DefaultResponseDTO;
+import br.pucsp.locar.ws.dto.LoginResponseDTO;
 
 @Remote
 public interface CadastroRemote {
 
-	public CadastroVeiculoResponseVO cadastrarVeiculo(CadastroVeiculoRequestVO request);
+	public CadastroVeiculoResponseDTO cadastrarVeiculo(CadastroVeiculoRequestDTO request);
 	
-	public LoginResponseVO realizarLogin(LoginVO login);
+	public LoginResponseDTO realizarLogin(LoginDTO login);
 	
-	public DefaultResponseVO verificarLogin(CadastroUsuarioRequestVO request);
+	public DefaultResponseDTO verificarLogin(CadastroUsuarioRequestDTO request);
 	
-	public DefaultResponseVO cadastrarUsuario(CadastroUsuarioRequestVO request);
+	public DefaultResponseDTO cadastrarUsuario(CadastroUsuarioRequestDTO request);
 	
 }

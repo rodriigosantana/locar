@@ -2,13 +2,13 @@ package br.pucsp.locar.iremote;
 
 import javax.ejb.Remote;
 
-import br.pucsp.locar.ws.vo.QuestionarioResponseVO;
-import br.pucsp.locar.ws.vo.ReservaRequestVO;
-import br.pucsp.locar.ws.vo.ReservaResponseVO;
+import br.pucsp.locar.ws.dto.QuestionarioResponseDTO;
+import br.pucsp.locar.ws.dto.ReservaRequestDTO;
+import br.pucsp.locar.ws.dto.ReservaResponseDTO;
 
 @Remote
 public interface ReservaRemote {
 
-	public ReservaResponseVO realizarReserva(ReservaRequestVO request);
+	public ReservaResponseDTO realizarReserva(ReservaRequestDTO request);
 	
 }

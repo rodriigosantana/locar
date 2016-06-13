@@ -1,12 +1,12 @@
 package br.pucsp.locar.util;
 
+import br.pucsp.locar.dto.AvaliacaoDTO;
 import br.pucsp.locar.fabrica.DAOFabrica;
-import br.pucsp.locar.vo.AvaliacaoVO;
-import br.pucsp.locar.ws.vo.AvaliacaoRequestVO;
+import br.pucsp.locar.ws.dto.AvaliacaoRequestDTO;
 
 public class AvaliacaoValidatorUtils {
 
-	public static String validarAvaliacao(AvaliacaoRequestVO avaliacao){
+	public static String validarAvaliacao(AvaliacaoRequestDTO avaliacao){
 		
 		String result = "";
 		
@@ -27,7 +27,7 @@ public class AvaliacaoValidatorUtils {
 			
 		} else {
 			
-			for(AvaliacaoVO avaliacaoVO : avaliacao.getListaAvaliacaoVO()){
+			for(AvaliacaoDTO avaliacaoVO : avaliacao.getListaAvaliacaoVO()){
 				
 				if(avaliacaoVO.getCodigoQuestao() <= 0 ||
 						!DAOFabrica.getQuestaoAvaliacaoDAO().isQuestao(avaliacaoVO.getCodigoQuestao()) ){

@@ -4,24 +4,24 @@ import javax.ejb.Stateless;
 
 import br.pucsp.locar.convert.ConvertCadastroToDAO;
 import br.pucsp.locar.convert.ConvertVeiculoToDAO;
+import br.pucsp.locar.dto.LoginDTO;
 import br.pucsp.locar.fabrica.DAOFabrica;
 import br.pucsp.locar.ilocal.CadastroLocal;
 import br.pucsp.locar.iremote.CadastroRemote;
 import br.pucsp.locar.util.CadastroValidatorUtils;
-import br.pucsp.locar.vo.LoginVO;
-import br.pucsp.locar.ws.vo.CadastroUsuarioRequestVO;
-import br.pucsp.locar.ws.vo.CadastroVeiculoRequestVO;
-import br.pucsp.locar.ws.vo.CadastroVeiculoResponseVO;
-import br.pucsp.locar.ws.vo.DefaultResponseVO;
-import br.pucsp.locar.ws.vo.LoginResponseVO;
+import br.pucsp.locar.ws.dto.CadastroUsuarioRequestDTO;
+import br.pucsp.locar.ws.dto.CadastroVeiculoRequestDTO;
+import br.pucsp.locar.ws.dto.CadastroVeiculoResponseDTO;
+import br.pucsp.locar.ws.dto.DefaultResponseDTO;
+import br.pucsp.locar.ws.dto.LoginResponseDTO;
 
 @Stateless
 public class CadastroBusiness implements CadastroLocal, CadastroRemote {
 
 	@Override
-	public CadastroVeiculoResponseVO cadastrarVeiculo(CadastroVeiculoRequestVO request) {
+	public CadastroVeiculoResponseDTO cadastrarVeiculo(CadastroVeiculoRequestDTO request) {
 		
-		CadastroVeiculoResponseVO response = new CadastroVeiculoResponseVO();
+		CadastroVeiculoResponseDTO response = new CadastroVeiculoResponseDTO();
 		
 		try{
 			
@@ -56,11 +56,11 @@ public class CadastroBusiness implements CadastroLocal, CadastroRemote {
 	}
 
 	@Override
-	public DefaultResponseVO verificarLogin(CadastroUsuarioRequestVO request) {
+	public DefaultResponseDTO verificarLogin(CadastroUsuarioRequestDTO request) {
 		
 		System.out.println("Iniciando o metodo verificarLogin - CadastroBusiness");
 		
-		DefaultResponseVO response = new DefaultResponseVO();
+		DefaultResponseDTO response = new DefaultResponseDTO();
 		
 		try{
 			
@@ -96,11 +96,11 @@ public class CadastroBusiness implements CadastroLocal, CadastroRemote {
 	}
 
 	@Override
-	public DefaultResponseVO cadastrarUsuario(CadastroUsuarioRequestVO request) {
+	public DefaultResponseDTO cadastrarUsuario(CadastroUsuarioRequestDTO request) {
 		
 		System.out.println("Iniciado o metodo cadastrarUsuario - CadastroBusiness");
 		
-		DefaultResponseVO response = new DefaultResponseVO();
+		DefaultResponseDTO response = new DefaultResponseDTO();
 		
 		try{
 			
@@ -144,11 +144,11 @@ public class CadastroBusiness implements CadastroLocal, CadastroRemote {
 	}
 
 	@Override
-	public LoginResponseVO realizarLogin(LoginVO login) {
+	public LoginResponseDTO realizarLogin(LoginDTO login) {
 
 		System.out.println("Iniciado o metodo realizarLogin - CadastroBusiness");
 		
-		LoginResponseVO response = new LoginResponseVO();
+		LoginResponseDTO response = new LoginResponseDTO();
 		
 		try{
 			

@@ -2,16 +2,16 @@ package br.pucsp.locar.ws.xml;
 
 import javax.jws.WebMethod;
 
+import br.pucsp.locar.ws.dto.ConsultaVeiculoRequestDTO;
+import br.pucsp.locar.ws.dto.ConsultaVeiculoResponseDTO;
 import br.pucsp.locar.ws.util.InjectEJBUtils;
-import br.pucsp.locar.ws.vo.ConsultaVeiculoRequestVO;
-import br.pucsp.locar.ws.vo.ConsultaVeiculoResponseVO;
 
 public class ConsultaLocarWS {
 
 	@WebMethod
-	public ConsultaVeiculoResponseVO consultarListaVeiculo(ConsultaVeiculoRequestVO request){
+	public ConsultaVeiculoResponseDTO consultarListaVeiculo(ConsultaVeiculoRequestDTO request){
 		
-		ConsultaVeiculoResponseVO response = null;
+		ConsultaVeiculoResponseDTO response = null;
 		String msgErro = "";
 		
 		try{
@@ -25,7 +25,7 @@ public class ConsultaLocarWS {
 
 		}
 		if ( response == null ) {
-			response = new ConsultaVeiculoResponseVO();
+			response = new ConsultaVeiculoResponseDTO();
 			response.setCodigoRetorno(99);
 			response.setMensagemRetorno("Houve erro no processamento! - Erro: " + msgErro);
 		}

@@ -5,22 +5,22 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 
+import br.pucsp.locar.dto.QuestaoDTO;
 import br.pucsp.locar.entity.Questaoavaliacao;
 import br.pucsp.locar.fabrica.DAOFabrica;
 import br.pucsp.locar.ilocal.QuestionarioLocal;
 import br.pucsp.locar.iremote.QuestionarioRemote;
-import br.pucsp.locar.vo.QuestaoVO;
-import br.pucsp.locar.ws.vo.QuestionarioResponseVO;
+import br.pucsp.locar.ws.dto.QuestionarioResponseDTO;
 
 @Stateless(name = "QuestionarioBusiness", mappedName = "br.pucsp.locar.business.QuestionarioBusiness")
 public class QuestionarioBusiness implements QuestionarioLocal, QuestionarioRemote {
 
 	@Override
-	public QuestionarioResponseVO consultarQuestionario(int codPerfil) {
+	public QuestionarioResponseDTO consultarQuestionario(int codPerfil) {
 
 		System.out.println("Inicio do metodo consultarQuestionario - QuestionarioBusiness"); 
 		
-		QuestionarioResponseVO response = new QuestionarioResponseVO();
+		QuestionarioResponseDTO response = new QuestionarioResponseDTO();
 
 		try{
 			
@@ -28,11 +28,11 @@ public class QuestionarioBusiness implements QuestionarioLocal, QuestionarioRemo
 			
 			if(listQuestoes.size() > 0){
 				
-				List<QuestaoVO> questionario = new ArrayList<QuestaoVO>();
+				List<QuestaoDTO> questionario = new ArrayList<QuestaoDTO>();
 			
 				for (Questaoavaliacao questao: listQuestoes){
 					
-					QuestaoVO questaoVO = new QuestaoVO();
+					QuestaoDTO questaoVO = new QuestaoDTO();
 					
 					questaoVO.setCodigoQuestao(questao.getIdQuestao());
 					questaoVO.setQuestao(questao.getQuestao());
